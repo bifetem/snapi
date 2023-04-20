@@ -1,8 +1,0 @@
-{
-  "dependencies": {
-    "mongoose": "^7.0.4"
-  },
-  "devDependencies": {
-    "sucrase": "^3.32.0"
-  }
-}
