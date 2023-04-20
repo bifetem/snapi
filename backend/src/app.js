@@ -1,8 +1,28 @@
-const express = require('express');
+import express from 'express';
+import mongoose from 'mongoose';
+import routes from './routes';
 
-const app = express();
+class App{
+    constructor(){
+        this.server = express();
+     //  const connection_string = "aaaaa";
+     //  mongoose.connect(connection_string, {
+     //      useNewUrlParser: true,
+     //      useUnifiedTopology: true,
+     //  })
 
-app.use(express.json());
+        this.middlewares();
 
-app.listen(3000);
-console.log('API rodando na porta 3000')
+        this.routes();
+    }
+
+    middlewares(){
+        this.server.use(express.json());
+    }
+
+    routes(){
+        this.server.use(routes);
+    }
+}
+ 
+export default new App().server;
